@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/progress_provider.dart';
+import 'providers/question_quiz_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/progress_screen.dart';
 import 'screens/educational_card_screen.dart';
@@ -11,6 +12,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ProgressProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionQuizProvider()),
       ],
       child: const ExcuelaTechChallenge(),
     ),

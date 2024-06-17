@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/question_quiz_provider.dart';
+import '../widgets/question_quiz.dart';
 
 class CustomizedQuizScreen extends StatelessWidget {
   const CustomizedQuizScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Widget 3: Quiz personalizado'),
+        title: const Text('Customized Quiz'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Widget de quiz personalizado'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: const Text('Volver a inicio'),
-            )
-          ],
-        ),
+      body: Consumer<QuestionQuizProvider>(
+        builder: (context, questionQuizProvider, child) {
+          return ListView.builder(
+            itemCount: questionQuizProvider.questions.length,
+            itemBuilder: (context, index) {
+              return QuestionQuizWidget(
+                questionQuiz: questionQuizProvider.questions[index],
+              );
+            },
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('test');
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
