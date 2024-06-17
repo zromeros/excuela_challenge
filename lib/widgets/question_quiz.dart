@@ -20,7 +20,7 @@ class QuestionQuizWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            if (questionQuiz.type == 'multiple_choice') ...[
+            if (questionQuiz.type == QuestionType.multipleChoice) ...[
               for (var option in questionQuiz.options!)
                 ListTile(
                   title: Text(option),
@@ -30,7 +30,7 @@ class QuestionQuizWidget extends StatelessWidget {
                     onChanged: (value) {},
                   ),
                 ),
-            ] else if (questionQuiz.type == 'true_false') ...[
+            ] else if (questionQuiz.type == QuestionType.trueFalse) ...[
               ListTile(
                 title: const Text('True'),
                 leading: Radio(

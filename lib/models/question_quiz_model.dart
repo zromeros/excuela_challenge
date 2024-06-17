@@ -1,8 +1,13 @@
+enum QuestionType {
+  trueFalse,
+  multipleChoice
+}
+
 class QuestionQuizModel {
   final String question;
   final List<String>? options;
   final bool? answer;
-  final String type;
+  final QuestionType type;
 
   QuestionQuizModel({
     required this.question,
