@@ -21,9 +21,9 @@ class EducationalCardScreen extends StatelessWidget {
           children: <Widget>[
             EducationalCardWidget(
                 educationalCardModel: EducationalCardModel(
-                    imageUrl: 'https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg',
-                    title: 'esto es un titulo',
-                    description: 'esto es una descripcion que puede ser muy larga'
+                    imageUrl: 'https://marketplace.canva.com/EAF2oXRAj_Y/1/0/1600w/canva-tarjetas-educativas-memoria-de-n%C3%BAmeros-ilustrado-colorido-BvxKX2VcuA8.jpg',
+                    title: 'Números',
+                    description: 'Un número es un símbolo o una combinación de símbolos utilizados para representar una cantidad.'
                 )
             ),
             const SizedBox(height: 16),

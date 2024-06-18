@@ -46,6 +46,7 @@ class EducationalCardWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   educationalCardModel.description,
+                  textAlign: TextAlign.center,
                   style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                 ),
               ),
