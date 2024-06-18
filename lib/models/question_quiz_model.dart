@@ -1,18 +1,26 @@
-enum QuestionType {
-  trueFalse,
-  multipleChoice
+class OptionQuiz {
+  final String label;
+  final dynamic value;
+
+  OptionQuiz({required this.label, required this.value});
 }
 
 class QuestionQuizModel {
+  final String id;
   final String question;
-  final List<String>? options;
-  final bool? answer;
-  final QuestionType type;
+  final List<OptionQuiz>? options;
+  final dynamic answer;
+  dynamic selectedAnswer;
+  bool? showResult;
+  bool? result;
 
   QuestionQuizModel({
+    required this.id,
     required this.question,
     this.options,
     this.answer,
-    required this.type,
+    this.selectedAnswer,
+    this.showResult,
+    this.result
   });
 }

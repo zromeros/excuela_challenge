@@ -27,7 +27,18 @@ class ExcuelaTechChallenge extends StatelessWidget {
     return MaterialApp(
       title: 'Excuela tech demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: const ColorScheme(
+          primary: Colors.blue,
+          secondary: Colors.white,
+          surface: Colors.white,
+          error: Colors.red,
+          onPrimary: Colors.blueAccent,
+          onSecondary: Colors.blueGrey,
+          onSurface: Colors.white,
+          onError: Colors.red,
+          brightness: Brightness.dark,
+          shadow: Colors.blueAccent,
+        ),
         useMaterial3: true,
       ),
       initialRoute: '/',

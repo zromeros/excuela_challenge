@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/question_quiz_model.dart';
+import '../providers/question_quiz_provider.dart';
 
 class QuestionQuizWidget extends StatelessWidget {
   final QuestionQuizModel questionQuiz;
@@ -20,36 +22,31 @@ class QuestionQuizWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            if (questionQuiz.type == QuestionType.multipleChoice) ...[
+           ...[
               for (var option in questionQuiz.options!)
                 ListTile(
-                  title: Text(option),
+                  title: Text(option.label),
                   leading: Radio(
-                    value: option,
-                    groupValue: null,
-                    onChanged: (value) {},
+                    value: option.value,
+                    groupValue: questionQuiz.selectedAnswer,
+                    onChanged: (value) {
+                      Provider.of<QuestionQuizProvider>(context, listen: false)
+                          .answerSelected(questionQuiz.id, value);
+                      Provider.of<QuestionQuizProvider>(context, listen: false)
+                          .hideResult(questionQuiz.id);
+                    },
                   ),
+                  trailing: (option.value == questionQuiz.selectedAnswer) & (questionQuiz.showResult == true)
+                      ? questionQuiz.result == true
+                      ? const Icon(Icons.check, color: Colors.green)
+                      : const Icon(Icons.close, color: Colors.red)
+                      : null,
                 ),
-            ] else if (questionQuiz.type == QuestionType.trueFalse) ...[
-              ListTile(
-                title: const Text('True'),
-                leading: Radio(
-                  value: true,
-                  groupValue: null,
-                  onChanged: (value) {},
-                ),
-              ),
-              ListTile(
-                title: const Text('False'),
-                leading: Radio(
-                  value: false,
-                  groupValue: null,
-                  onChanged: (value) {},
-                ),
-              ),
             ],
           ],
+
         ),
+
       ),
     );
   }

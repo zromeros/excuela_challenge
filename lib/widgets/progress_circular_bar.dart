@@ -8,9 +8,9 @@ class CircularProgress extends StatelessWidget {
   final double strokeWidth;
 
   const CircularProgress({
-    Key? key,
+    super.key,
     this.size = 100.0,
-    this.color = Colors.blue,
+    this.color = Colors.green,
     this.strokeWidth = 8.0,
   });
 
