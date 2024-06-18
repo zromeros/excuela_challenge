@@ -11,7 +11,10 @@ class CustomizedQuizScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Widget 3: Quiz customizable'),
+        title: Text(
+            'Widget 3: Quiz customizable',
+          style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+        ),
       ),
       body: Consumer<QuestionQuizProvider>(
         builder: (context, questionQuizProvider, child) {
@@ -37,10 +40,18 @@ class CustomizedQuizScreen extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0), // Padding interno
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0),
+                borderRadius: BorderRadius.circular(48.0),
+              ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            child: Text(
+                'Verificar',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary,
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            child: const Text('Verificar'),
           ),
         ),
     );

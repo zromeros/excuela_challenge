@@ -10,6 +10,7 @@ class QuestionQuizWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<QuestionQuizProvider>(context, listen: true);
     return Card(
       margin: const EdgeInsets.all(8.0),
       child: Padding(
@@ -19,21 +20,29 @@ class QuestionQuizWidget extends StatelessWidget {
           children: [
             Text(
               questionQuiz.question,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight:
+                  FontWeight.bold,
+                  color: Theme.of(context).colorScheme.primary),
             ),
             const SizedBox(height: 10),
            ...[
               for (var option in questionQuiz.options!)
                 ListTile(
-                  title: Text(option.label),
+                  title: Text(
+                      option.label,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSecondary
+                      ),
+                  ),
                   leading: Radio(
                     value: option.value,
+                    activeColor: Colors.green,
                     groupValue: questionQuiz.selectedAnswer,
                     onChanged: (value) {
-                      Provider.of<QuestionQuizProvider>(context, listen: false)
-                          .answerSelected(questionQuiz.id, value);
-                      Provider.of<QuestionQuizProvider>(context, listen: false)
-                          .hideResult(questionQuiz.id);
+                      provider.answerSelected(questionQuiz.id, value);
+                      provider.hideResult(questionQuiz.id);
                     },
                   ),
                   trailing: (option.value == questionQuiz.selectedAnswer) & (questionQuiz.showResult == true)

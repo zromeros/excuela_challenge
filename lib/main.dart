@@ -34,7 +34,7 @@ class ExcuelaTechChallenge extends StatelessWidget {
           error: Colors.red,
           onPrimary: Colors.blueAccent,
           onSecondary: Colors.blueGrey,
-          onSurface: Colors.white,
+          onSurface: Colors.blueGrey,
           onError: Colors.red,
           brightness: Brightness.dark,
           shadow: Colors.blueAccent,

@@ -13,7 +13,10 @@ class ProgressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text('Widget 1: Progreso interactivo'),
+        title: Text(
+            'Widget 1: Progreso interactivo',
+            style: TextStyle(color: Theme.of(context).colorScheme.secondary )
+        ),
       ),
       body: Center(
         child: Column(
@@ -81,7 +84,7 @@ class ProgressScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 100),
-            const RouteButtonWidget(route: '/educational-card', title: 'Tarjeta educativa'),
+            const RouteButtonWidget(route: '/educational-card', title: 'Ir a la tarjeta educativa'),
           ],
         ),
       ),
